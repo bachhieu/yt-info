@@ -34,6 +34,10 @@ class Youtube {
         viewCount,
       });
     } catch (e) {
+      console.log(
+        "🚀 ~ file: yt-info.js ~ line 37 ~ Youtube ~ getInfoByChannelId ~ e",
+        e
+      );
       res.send("Sai channel Id hoặc không tìm thấu channel");
     }
   }
