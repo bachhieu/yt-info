@@ -7,14 +7,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 const port = 3000;
-const run = async () => {
-  GoogleSheet.connect();
-  app.post("/sheet", GoogleSheet.uploadData);
-  app.get("/sheet", GoogleSheet.loadInfo);
+const run = async ({ sheetId }) => {
+  const googleSheet = new GoogleSheet(sheetId);
+  googleSheet.connect();
+  app.post("/sheet", googleSheet.uploadData);
+  app.get("/sheet", googleSheet.loadInfo);
   app.get("/info/:id", Youtube.getInfoByChannelId);
 
   app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(` app listening on port ${port}`);
   });
 };
 
