@@ -8,11 +8,15 @@ run : `npm i yt-info yt-channel-info@3.0.0`
 const run = require("info-yt");
 
 async function main() {
-  await run();
+  const input = {
+    sheetId: "1yNq-8tSfU_oPtiODsmTJ_tRFDeRbJedvOOiFPQJ96dk",
+  };
+  await run(input);
   await new Promise(() => {});
 }
 
 main();
+
 
 ```
 ### output
